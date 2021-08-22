@@ -1,0 +1,9 @@
+[submodule "nuxt"]
+	path = nuxt
+	url = git@github.com:taniguchi15/compar-nuxt-react-nuxt.git
+[submodule "react"]
+	path = react
+	url = git@github.com:taniguchi15/compar-nuxt-react-react.git
+[submodule "api"]
+	path = api
+	url = git@github.com:taniguchi15/compar-nuxt-react-api.git

@@ -1,0 +1,50 @@
+version: '3'
+
+services:
+
+  nginx:
+    container_name: cnr-nginx
+    build: ./nginx
+    tty: true
+    ports:
+      - "80:80"
+    links:
+      - nuxt
+      - react
+      - api
+
+  nuxt:
+    container_name: cnr-nuxt
+    build: ./nuxt
+    tty: true
+    stdin_open: true
+#   ports:
+#     - "81:80"
+    volumes:
+      - /app/node_modules
+      - ./nuxt:/app
+    command: "yarn run dev"
+
+  react:
+    container_name: cnr-react
+    build: ./react
+    tty: true
+    stdin_open: true
+#   ports:
+#     - "82:80"
+    volumes:
+      - /app/node_modules
+      - ./react:/app
+    command: "yarn start"
+
+  api:
+    container_name: cnr-api
+    build: ./api
+    tty: true
+    stdin_open: true
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+    command: "go run ."
+
