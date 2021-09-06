@@ -18,8 +18,6 @@ services:
     build: ./nuxt
     tty: true
     stdin_open: true
-#   ports:
-#     - "81:80"
     volumes:
       - /app/node_modules
       - ./nuxt:/app
@@ -30,8 +28,6 @@ services:
     build: ./react
     tty: true
     stdin_open: true
-#   ports:
-#     - "82:80"
     volumes:
       - /app/node_modules
       - ./react:/app
@@ -42,8 +38,6 @@ services:
     build: ./api
     tty: true
     stdin_open: true
-    ports:
-      - "3000:3000"
     volumes:
       - ./api:/app
     command: "go run ."
